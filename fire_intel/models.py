@@ -142,6 +142,11 @@ class OverviewIntelReport(DateTimeStampMixin):
         (3, 3),
         (4, 4),
         (5, 5),
+        (6, 6),
+        (7, 7),
+        (8, 8),
+        (9, 9),
+        (10, 10),
     }
 
     NW_TYPE_2_TEAMS = {
@@ -153,6 +158,9 @@ class OverviewIntelReport(DateTimeStampMixin):
         (5, 5),
         (6, 6),
         (7, 7),
+        (8, 8),
+        (9, 9),
+        (10, 10),
     }
     WA_TYPE_3_TEAMS = {
         (0, 0),
@@ -163,6 +171,9 @@ class OverviewIntelReport(DateTimeStampMixin):
         (5, 5),
         (6, 6),
         (7, 7),
+        (8, 8),
+        (9, 9),
+        (10, 10),
     }
 
     preparedness_level_national = models.SmallIntegerField("National Preparedness Level", choices=sorted(PREPAREDNESS_LEVELS), blank=False,
