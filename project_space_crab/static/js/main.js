@@ -1066,6 +1066,15 @@ $(function() {
 
     var defaultStart = new Date().getFullYear() + '-01-01'
 
+    function pretty_num(number, acres = false) {
+        nf = Intl.NumberFormat();
+        if (acres) {
+            return nf.format(Math.round(number)) + " ac."
+        } else {
+            return nf.format(Math.round(number));
+        }
+    }
+
     function createFreqArray (anyArray) {
         var freqMap = {};
 
@@ -1145,17 +1154,17 @@ $(function() {
 
                     plugins: {
                         datalabels: { 
-                            display: function(context) {
-                                return context.dataset.data[context.dataIndex] >= 15; // or >= 1 or ...
-                             },
+                            display: function (context) {
+                                return context.dataset.data[context.dataIndex] >= 1; // or >= 1 or ...
+                            },
                             color: '#000000',
-                            font:{
+                            font: {
                                 size: 10
                             },
                             anchor: 'end',
-                            align:'end',
-                            // display: 'auto',
-                            formatter: function(value, context) {
+                            align: 'end',
+                            display: 'auto',
+                            formatter: function (value, context) {
                                 return context.chart.data.labels[context.dataIndex] + ' (' + value + ')';
                             }
                     }}}
@@ -1227,16 +1236,16 @@ $(function() {
                     plugins: {
                         datalabels: { 
                             color: '#000000',
-                            font:{
-                                size: 10
-                            },
-                            anchor: 'end',
-                            align:'end',
-                            offset:-5
-                            // // display: 'auto',
-                            // formatter: function(value, context) {
-                            //     return context.chart.data.labels[context.dataIndex] + ' (' + value + ')';
-                            // }
+                                font: {
+                                    size: 10,
+                                },
+                                anchor: 'end',
+                                align: 'end',
+                                offset: -5,
+                                // display: 'auto',
+                                // formatter: function(value, context) {
+                                //     return ' (' + value + ')';
+                                // }
                     }}
 
                 }
@@ -1308,17 +1317,16 @@ $(function() {
                     plugins: {
                         datalabels: { 
                             color: '#000000',
-                            font:{
-                                size: 10
-                            },
-                            anchor: 'end',
-                            align:'end',
-                            offset:-5
-
-                            // // display: 'auto',
-                            // formatter: function(value, context) {
-                            //     return context.chart.data.labels[context.dataIndex] + ' (' + value + ')';
-                            // }
+                                font: {
+                                    size: 10
+                                },
+                                anchor: 'end',
+                                align: 'end',
+                                offset: -5,
+                                // display: 'auto',
+                                formatter: function (value, context) {
+                                    return pretty_num(value);
+                                }
                     }}
 
                 }
